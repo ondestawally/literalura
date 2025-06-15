@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.5.0</version> <!-- Mantendo sua versão de Spring Boot 3.5.0 -->
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.alura</groupId>
+	<artifactId>literalura</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>literalura</name>
+	<description>Projeto para catálogo de livros com API Gutendex</description>
+	<!-- As tags <url>, <licenses>, <developers>, <scm> são geralmente opcionais para projetos pequenos e podem ser removidas para um pom.xml mais limpo se não forem necessárias -->
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	<properties>
+		<!-- Mantendo sua versão de Java 24. Esteja ciente de que pode haver a necessidade de configurações adicionais
+             ou que algumas bibliotecas ainda não estejam totalmente otimizadas para esta versão muito recente.
+             Java 17 é a LTS recomendada para Spring Boot 3.x. -->
+		<java.version>17</java.version>
+	</properties>
+	<dependencies>
+		<!-- Starter para funcionalidades básicas do Spring Boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<!-- Starter para JPA (Java Persistence API) com Hibernate -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!-- Driver para PostgreSQL (Mantido conforme sua escolha) -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Jackson para processamento de JSON (essencial para a API Gutendex) -->
+		<!-- O spring-boot-starter-web traria Jackson, mas como não estamos usando web,
+             adicionamos explicitamente. -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.16.1</version> <!-- Versão 2.16 recomendada -->
+		</dependency>
+		<!-- Suporte para tipos de data e hora do Java 8+ com Jackson -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+			<version>2.16.1</version>
+		</dependency>
+
+		<!-- Lombok para reduzir código boilerplate (getters, setters, construtores) -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.30</version> <!-- Usar uma versão compatível. -->
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- API de Persistência (JPA) para anotações como @Entity, @Table, etc. -->
+		<!-- Geralmente já vem com starter-data-jpa, mas bom ter explícito às vezes. -->
+		<dependency>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+			<version>3.1.0</version> <!-- Versão compatível com Spring Boot 3.x -->
+		</dependency>
+
+		<!-- Dependência para testes, gerada por padrão -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+
+
+	<build>
+		<plugins>
+			<!-- Plugin Spring Boot Maven para construir um JAR executável -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
